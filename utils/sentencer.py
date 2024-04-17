@@ -1,6 +1,5 @@
 import pandas as pd
 import pysbd
-
 class Sentencer():
 
     def __init__(self, input_path, segmenter, output_path):
