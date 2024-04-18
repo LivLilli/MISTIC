@@ -1,8 +1,7 @@
 # MISTIC
 
 The repository present the following structure:
-'''
-.
+<html>.
 ├── data
 │   ├── santoro_data
 │   │   ├── gold_extended.csv
@@ -33,7 +32,7 @@ The repository present the following structure:
 │   ├── sentencer.py
 │   └── topic_selector.py
 └── requirements.txt
-'''
+</html>
 
 Script Order:
 
