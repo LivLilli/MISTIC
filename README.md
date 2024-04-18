@@ -1,7 +1,7 @@
 # MISTIC
 
 The repository present the following structure:
-'''
+"""
 .
 |-- data
 |   |-- santoro_data
@@ -34,7 +34,7 @@ The repository present the following structure:
 |   `-- topic_selector.py
 |-- README.md
 `-- requirements.txt
-'''
+"""
 
 Script Order:
 
