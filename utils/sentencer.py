@@ -2,12 +2,10 @@ import pandas as pd
 import pysbd
 class Sentencer():
 
-    def __init__(self, input_path, segmenter, output_path):
+    def __init__(self, input_path, segmenter):
 
         self.data = pd.read_csv(input_path)
         self.data_segmenter = segmenter
-        self.ouput_path = output_path
-
     def data_to_sentence(self):
 
         data_to_split = self.data.copy()
@@ -18,8 +16,8 @@ class Sentencer():
 
         return output_data
 
-    def save_sentence_data(self):
+    def save_sentence_data(self, output_path):
 
         output_data = self.data_to_sentence()
-        output_data.to_csv(self.ouput_path, index=False)
+        output_data.to_csv(output_path, index=False)
 
