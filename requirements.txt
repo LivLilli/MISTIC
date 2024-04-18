@@ -1,0 +1,7 @@
+datasets==2.18.0
+numpy==1.26.4
+optuna==3.6.1
+pandas==2.2.2
+pysbd==0.3.4
+sentence_transformers==2.7.0
+setfit==1.0.3
