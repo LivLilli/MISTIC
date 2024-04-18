@@ -1,12 +1,14 @@
 from datasets import load_dataset
 from sentence_transformers.losses import CosineSimilarityLoss
 from setfit import SetFitModel, SetFitTrainer
-from typing import Dict, Any
+from typing import Dict, Any, Union
 from optuna import Trial
+import os
 
-
-output_path = 'model_yes_nodul_lower/'
-dataset = load_dataset("csv", data_files={"train": dir+"sentences_labelled_train.csv", "test": dir+"sentences_labelled_test.csv"})
+train_path = os.path.join('..', 'data', 'train_data.csv')
+test_path = os.path.join('..', 'data', 'test_data.csv')
+output_path = os.path.join('../results')
+dataset = load_dataset("csv", data_files={"train": train_path, "test": test_path})
 model_id = "sentence-transformers/paraphrase-multilingual-mpnet-base-v2"
 
 
@@ -41,11 +43,11 @@ trainer = SetFitTrainer(
     eval_dataset=dataset["test"],
     loss_class=CosineSimilarityLoss,
     metric="accuracy",
-    column_mapping={"splitted_text": "text", "label": "label"} # Map dataset columns to text
+    column_mapping={"splitted_text": "text", "CATEGORY": "label"} # Map dataset columns to text
 )
 
 best_run = trainer.hyperparameter_search(direction="maximize", hp_space=hp_space, n_trials=10)
 trainer.apply_hyperparameters(best_run.hyperparameters, final_model=True) # replaces model_init with a fixed model
 trainer.train()
 metrics = trainer.evaluate()
-trainer.model.save_pretrained(dir)
+trainer.model.save_pretrained(output_path)
