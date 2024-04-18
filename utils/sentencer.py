@@ -13,7 +13,8 @@ class Sentencer():
         data_to_split = self.data.copy()
         data_to_split['splitted_text'] = data_to_split['text'].transform(self.data_segmenter.segment)
         data_split = data_to_split.explode('splitted_text')
-        output_data = data_split[['id', 'splitted_text']].dropna().reset_index()
+        output_data = data_split[['id', 'splitted_text']].dropna()
+        output_data['sent_id'] = [x for x in range(1, len(output_data)+1)]
 
         return output_data
 
