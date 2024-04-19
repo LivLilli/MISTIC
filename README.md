@@ -1,4 +1,4 @@
-# MISTIC
+# :it: :hospital: :computer: MISTIC
 
 ```bash
 |-- scripts
