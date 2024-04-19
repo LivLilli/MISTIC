@@ -63,7 +63,7 @@ python scripts/sample_data.py
 ```
 
 The above command filters and samples by topic the data for training. Moreover, it applies all the preprocessing pipeline (then the segmentation and the topic filtering) to the input gold standards, for being used in the inference phase.
-Training data sampling takes as input a dataset of sentences annotated by the SAS text-analytics pipeline. The dataset is required to present the columns parole chiave and livello_categoria_1, where are indicated the key lemmas and the concepts of presence/absence related to those lemmas:
+Training data sampling takes as input a dataset of sentences annotated by the SAS text-analytics pipeline. The dataset is required to present the columns "parole chiave" and "livello_categoria_1", where are indicated the key lemmas and the concepts of presence/absence related to those lemmas:
 
 | id | sent_id | splitted_text | livello_categoria_1 | parole chiave |
 |----|:-------:|:-------------:|:-------------------:|---------------:
@@ -82,7 +82,8 @@ Gold standars are intended as a subset of EHR manually annotated by experts for 
 python scripts/fine_tune.py
 ```
 
-The above command performs the MISTIC fine-tuning for the given input parameters. 
+The above command performs the MISTIC fine-tuning for the given input parameters and the training data previously generated. 
+The model checkpoints are saved into the "results" directory. 
 
 5. Inference
 
@@ -90,8 +91,12 @@ The above command performs the MISTIC fine-tuning for the given input parameters
 python scripts/inference.py
 ```
 
-The above command evaluated the fine-tuned MISTIC model on the gold standards.
+The above command evaluates the fine-tuned MISTIC model on the gold standards at sentence level, previously processed in phase 3. 
+The final classification is then performed at overall EHR level, by making an OR operation among the single sentences' labels. 
+The output table presents the following structure:
 
-
+| id | text | gold  | classification |
+|----|:----:|:-----:|---------------:|
+|    |      |       |                |
 
 
