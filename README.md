@@ -1,4 +1,7 @@
-# :it: :hospital: :computer: MISTIC
+# :it: :hospital: MISTIC
+
+
+## Repository structure 
 
 ```bash
 |-- scripts
@@ -24,9 +27,38 @@
 |-- README.md
 |-- requirements.txt
 ```
-Scripts Order:
 
-* data to sentences.py (tested)
-* sample_data.py (tested)
-* fine_tune.py (to test)
-* inference.py (to test)
+## How to use
+
+1. Install requirements
+
+```
+pip install -r requirements.txt
+```
+
+2. Data Segmentation
+
+```
+python scripts/data_to_sentences.py
+```
+
+3. Sampling data for Training and Inference
+
+```
+python scripts/sample_data.py
+```
+
+4. Fine-Tuning
+
+```
+python scripts/fine_tune.py
+```
+5. Inference
+
+```
+python scripts/inference.py
+```
+
+
+
+
