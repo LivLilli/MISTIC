@@ -1,4 +1,4 @@
-# :it: :hospital: MISTIC
+# :it: :hospital: :computer: MISTIC
 
 
 ## Repository structure 
