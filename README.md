@@ -5,12 +5,12 @@
 |   |-- data_to_sentences.py
 |   |-- fine_tune.py
 |   |-- inference.py
-|   `-- sample_data.py
+|   -- sample_data.py
 |-- utils
 |   |-- classifier.py
 |   |-- data_processor.py
 |   |-- sentencer.py
-|   `-- topic_selector.py
+|   -- topic_selector.py
 |-- data
 |   |-- data_sent_annotated.csv
 |   |-- data_sent.csv
@@ -19,10 +19,10 @@
 |   |-- gs_sent_filtered.csv
 |   |-- input_data.csv
 |   |-- test_data.csv
-|   `-- train_data.csv
+|   -- train_data.csv
 |-- results
 |-- README.md
-`-- requirements.txt
+-- requirements.txt
 ```
 Scripts Order:
 
