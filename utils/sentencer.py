@@ -1,5 +1,6 @@
 import pandas as pd
 import pysbd
+
 class Sentencer:
     '''
     Sentencer object contains methods for process and save data to sentences.

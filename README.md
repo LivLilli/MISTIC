@@ -1,6 +1,5 @@
 # MISTIC
 
-
 Scripts Order:
 
 * data to sentences.py (tested)
