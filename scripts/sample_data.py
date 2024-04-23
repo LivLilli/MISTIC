@@ -8,7 +8,9 @@ output_train_path = os.path.join('..', 'data', 'train_data.csv')
 output_test_path = os.path.join('..', 'data', 'test_data.csv')
 output_gs_sent_path = os.path.join('..', 'data', 'gs_sent.csv')
 output_gs_topic_path = os.path.join('..', 'data', 'gs_sent_filtered.csv')
+sampling_n = 50
+segmenter = pysbd.Segmenter(language="it", clean=False)
 
-processor_obj = DataProcessor(input_path, gs_path, regex_pattern)
+processor_obj = DataProcessor(input_path, gs_path, regex_pattern, sampling_n, segmenter)
 processor_obj.save_data_for_training(output_train_path, output_test_path)
 processor_obj.save_data_for_inference(output_gs_sent_path, output_gs_topic_path)

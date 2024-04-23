@@ -11,15 +11,21 @@ class DataProcessor:
     :type gs_data_path: str
     :param regex_pattern: regex pattern used to filter texts
     :type regex_pattern: str
+    :param k_sample: sampling dimension per lemma
+    :type k_sample: int
+    :param segmenter: pysbd segmenter
+    :type segmenter: pysbd model object
     '''
 
-    def __init__(self, input_data_path, gs_data_path, regex_pattern):
+    def __init__(self, input_data_path, gs_data_path, regex_pattern, k_sample, segmenter):
 
         self.input_data_path = input_data_path
         self.regex_pattern = regex_pattern
         self.gs_path = gs_data_path
         gs_data = pd.read_csv(gs_data_path)
         self.gs_text_ids = list(set(gs_data.id))
+        self.sample_dimension = k_sample
+        self.segmenter = segmenter
 
     def filter_data(self):
         '''
@@ -54,7 +60,7 @@ class DataProcessor:
         '''
 
         data_tag_filtered = self.check_data()
-        train_data =  data_tag_filtered.groupby(['LEMMA', 'CATEGORY']).sample(50)
+        train_data =  data_tag_filtered.groupby(['LEMMA', 'CATEGORY']).sample(self.sample_dimension)
         val_data = data_tag_filtered[~data_tag_filtered.id.isin(list(set(train_data.id)))]
 
         return train_data, val_data
@@ -87,7 +93,7 @@ class DataProcessor:
         :return: saves the pandas df to a csv file
         '''
 
-        gs_sentencer = Sentencer(self.gs_path, pysbd.Segmenter(language="it", clean=False))
+        gs_sentencer = Sentencer(self.gs_path, self.segmenter)
         gs_sentencer.save_sentence_data(output_gs_sent_path)
         topic_selector_gs_obj = TopicSelector(output_gs_sent_path, self.regex_pattern, 'splitted_text')
         topic_selector_gs_obj.save_topic_data(output_gs_sent_filtered_path)

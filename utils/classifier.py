@@ -65,5 +65,5 @@ class MisticClassifier:
         '''
 
         output_data = self.classify_overall_ehrs()
-        output_data.to_csv(output_data_path)
+        output_data.to_csv(output_data_path, index=False)
 
