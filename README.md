@@ -1,5 +1,8 @@
 # :it: :hospital: :computer: MISTIC
 
+Welcome to MISTIC, a pipeline for Metastases Italian Sentence Transformers Inference Classification.
+
+The research team for this work includes: Livia Lilli, Mario Santoro, Valeria Masiello, Stefano Patarnello, Luca Tagliaferri, Fabio Marazzi, Nikola Dino Capocchiano.
 
 ## Repository structure 
 
