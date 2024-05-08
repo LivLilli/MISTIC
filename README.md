@@ -92,4 +92,6 @@ The output table presents the following structure:
 |----|:----:|:-----:|---------------:|
 |    |      |       |                |
 
+## Citation 
 
+If you use MISTIC in you research, please cite this repository.
